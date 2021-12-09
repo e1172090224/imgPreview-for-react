@@ -1,0 +1,203 @@
+
+@imgHeight_large: calc(~'100vh - 50px');
+@imgHeight: calc(~'100vh - 200px');
+
+  .preview-photo_swipe {
+    z-index: 1000;
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  .preview-topbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #222222;
+    z-index: 7;
+    .preview-close-icon {
+      background-image: url(../assets/img/close.png);
+      background-size: cover;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+    .preview-rotate-icon {
+      background-image: url(../assets/img/retry_logo.png);
+      background-size: cover;
+      position: absolute;
+      top: 15px;
+      right: 65px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+    .preview-enlarge-icon {
+      background-image: url(../assets/img/enlarge.png);
+      background-size: cover;
+      position: absolute;
+      top: 15px;
+      right: 115px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+    .preview-img-size {
+      position: absolute;
+      display: inline-block;
+      width: 62px;
+      margin: 0 auto;
+      top: 15px;
+      right: 135px;
+      font-family: PingFangSC-Medium;
+      font-size: 14px;
+      height: 20px;
+      color: #ffffff;
+    }
+    .preview-narrow-icon {
+      background-image: url(../assets/img/narrow.png);
+      background-size: cover;
+      position: absolute;
+      top: 15px;
+      right: 227px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+    .preview-title {
+      position: absolute;
+      top: 15px;
+      left: 24px;
+      font-family: PingFangSC-Medium;
+      font-size: 14px;
+      height: 20px;
+      color: #ffffff;
+    }
+    .preview-page-num {
+      position: relative;
+      display: block;
+      width: 30px;
+      font-size: 14px;
+      color: #ffffff;
+      top: 10px;
+      margin: 0 auto;
+    }
+  }
+  .preview-left {
+    position: fixed;
+    top: calc(~'50vh - 59px');
+    left: 0;
+    z-index: 6;
+    width: 66px;
+    height: 118px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      opacity: 0.5;
+      background: #000000;
+    }
+    span {
+      background-image: url(../assets/img/prve_logo.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+  }
+  .preview-right {
+    position: fixed;
+    top: calc(~'50vh - 59px');
+    right: 0;
+    width: 66px;
+    height: 118px;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      opacity: 0.5;
+      background: #000000;
+    }
+    span {
+      background-image: url(../assets/img/next_logo.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+  }
+  .preview-center_large {
+    position: relative;
+    top: 50px;
+    z-index: 5;
+    overflow: auto;
+    width: 100vw;
+    height: @imgHeight_large;
+  }
+  .preview-center {
+    position: relative;
+    margin-top: 50px;
+    z-index: 5;
+    overflow: auto;
+    width: 100vw;
+    height: @imgHeight;
+  }
+  .preview-img_con {
+    z-index: 10;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .preview-img_con_small {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .preview-footer {
+    position: fixed;
+    bottom: 0px;
+    height: 150px;
+    width: 100%;
+    padding: 10px 14px;
+    background: #343434;
+    z-index: 6;
+    overflow-y: auto;
+    .preview-footer-ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      li {
+        display: inline-block;
+        margin: 10px;
+        img {
+          cursor: pointer;
+          width: 120px;
+          height: 90px;
+        }
+      }
+      .active {
+        border: 2px solid #0984f9;
+      }
+    }
+  }
