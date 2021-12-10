@@ -1,15 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import ImgPreview from '../../src/imgPreview';
+import MyComponent from '../../src';
 
-let imgData={
-    
-}
-const App:any = () => <ImgPreview 
+let imgData=[  
+    '//s2.loli.net/2021/12/10/VJHq6wNW8TtpYuQ.png',
+    '//s2.loli.net/2021/12/10/uyKi9V7hlfDJnO4.png',
+    '//s2.loli.net/2021/12/10/UGJc8VhmwOAI7jE.png'
+]
+  
+const App = () => <ImgPreview 
     imageArr={imgData}
     imgIndex={0}
     showThumbnail={false}
 /> 
 
 
-ReactDOM.render(<App />,document.getElementById('root'));
+render(<App />, document.getElementById("root"));
