@@ -12,7 +12,7 @@ let imgData=[
 const App = () => <ImgPreview 
     imageArr={imgData}
     imgIndex={0}
-    showThumbnail={false}
+    showThumbnail={true}
 /> 
 
 
