@@ -1,11 +1,13 @@
 {
-  "name": "react-img-preview",
+  "name": "img-preview-for-react",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development"
+    "start": "webpack-dev-server --mode development",
+    "transpile": "babel src -d dist --copy-files",
+    "prepublishOnly": "npm run transpile"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +22,7 @@
     "html-webpack-plugin": "^5.5.0",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
+    "node-sass": "^7.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "style-loader": "^3.3.1",
@@ -30,9 +33,12 @@
     "webpack-dev-server": "^4.6.0"
   },
   "dependencies": {
+    "@babel/cli": "^7.16.0",
     "@babel/preset-react": "^7.16.0",
     "@types/lodash": "^4.14.177",
     "@types/react": "^17.0.35",
-    "babel-preset-mobx": "^2.0.0"
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-preset-mobx": "^2.0.0",
+    "regenerator-runtime": "^0.13.9"
   }
 }

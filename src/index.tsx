@@ -503,13 +503,13 @@ export default class ImgPreview extends Component<
   }
   render() {
     const { imgIndex, imageArr, imgSize, imgStyle } = this.state;
+    console.log('ji',imgIndex,imageArr)
     return (
       <div className={'preview-photo_swipe'}>
         <div className={'preview-topbar'}>
-          <span className={'preview-title'}>实勘图</span>
+          <span className={'preview-title'}>{imageArr.length ? imageArr[imgIndex].imgTitle:''}</span>
           <span className={'preview-page-num'}>
-            {imgIndex + 1}/{imageArr.length}
-          </span>
+            {imgIndex + 1}/{imageArr.length}</span>
           {/* 旋转 */}
           <span
             className={'preview-rotate-icon'}
@@ -576,7 +576,7 @@ export default class ImgPreview extends Component<
             <ul className={'preview-footer-ul'}>
               {imageArr.map((item: any, index: number) => {
                 return (
-                  <li>
+                  <li key={index}>
                     <img
                       key={index}
                       src={item.thumbnail || item.url}
