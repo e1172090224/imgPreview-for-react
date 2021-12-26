@@ -5,7 +5,13 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
  filename: "./index.html"
 });
 module.exports = {
- entry: path.join(__dirname, "example/src/index.tsx"),
+ entry: path.join(__dirname, "src/index.tsx"),
+ output: {
+  filename: 'index.js',
+  path: path.resolve(__dirname, 'dist'),
+  libraryTarget: 'commonjs2',
+},
+ devtool: 'inline-source-map',
  module: {
    rules: [{
      test: /\.(js|jsx)$/,
@@ -15,7 +21,10 @@ module.exports = {
     test: /\.tsx?$/,
     use: [
         {
-            loader: "ts-loader"
+            loader: "ts-loader",
+            options:{
+              transpileOnly: true,	
+            }
         }
     ]
 },{
@@ -24,9 +33,12 @@ module.exports = {
  }]
 },
  plugins: [htmlWebpackPlugin],
+ 
  resolve: {
    extensions: [".js",".ts",".tsx"]
  },
  devServer: {
    port: 3001
-}};
+},
+
+};

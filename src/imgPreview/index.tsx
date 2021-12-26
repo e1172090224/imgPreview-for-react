@@ -9,6 +9,7 @@ export interface ImgPreviewState {
   imgStyle: object;
   ImgHeight: number;
   ImgWidth: number;
+  imageNum: number;
 }
 export interface ImgPreviewProps {
   imageArr: any[];
@@ -37,6 +38,7 @@ export default class ImgPreview extends Component<
       imgStyle: {}, //图片样式
       ImgHeight: 0, //宽高初始值
       ImgWidth: 0, //宽高初始值
+      imageNum: 0 
     };
     this.windowW = document.body.offsetWidth;
     this.windowH = this.props.showThumbnail
@@ -51,6 +53,7 @@ export default class ImgPreview extends Component<
       {
         imgIndex: imgIndex,
         imageArr: imageArr,
+        imageNum: imageArr.length
       },
       () => {
         this.setImgStyle();
@@ -88,7 +91,7 @@ export default class ImgPreview extends Component<
     } else {
       this.setState(
         {
-          imgIndex: this.state.imageArr.length - 1,
+          imgIndex: this.state.imageNum - 1,
           imgSize: 1,
         },
         () => {
@@ -99,7 +102,7 @@ export default class ImgPreview extends Component<
   }
   //下一页
   goAfterPage(): void {
-    if (this.state.imgIndex == this.state.imageArr.length - 1) {
+    if (this.state.imgIndex == this.state.imageNum - 1) {
       this.setState(
         {
           imgIndex: 0,
@@ -502,14 +505,14 @@ export default class ImgPreview extends Component<
     }
   }
   render() {
-    const { imgIndex, imageArr, imgSize, imgStyle } = this.state;
+    const { imgIndex, imageArr, imgSize, imgStyle,imageNum } = this.state;
     console.log('ji',imgIndex,imageArr)
     return (
       <div className={'preview-photo_swipe'}>
         <div className={'preview-topbar'}>
-          <span className={'preview-title'}>{imageArr.length ? imageArr[imgIndex].imgTitle:''}</span>
+          <span className={'preview-title'}>{!!imageNum && imageArr[imgIndex].imgTitle}</span>
           <span className={'preview-page-num'}>
-            {imgIndex + 1}/{imageArr.length}</span>
+            {imgIndex + 1}/{imageNum}</span>
           {/* 旋转 */}
           <span
             className={'preview-rotate-icon'}
@@ -535,7 +538,7 @@ export default class ImgPreview extends Component<
         </div>
         {/* 上一张 */}
         <div
-          className={`Preview-left`}
+          className={`preview-left`}
           onClick={this.goBeforePage.bind(this)}
         >
           <span></span>
@@ -544,8 +547,8 @@ export default class ImgPreview extends Component<
         <div
           className={
             this.props.showThumbnail
-              ? `Preview-center`
-              : `Preview-center_large`
+              ? `preview-center`
+              : `preview-center_large`
           }
           ref={(el) => {
             this.photoSwipe = el;
@@ -554,8 +557,8 @@ export default class ImgPreview extends Component<
           <div
             className={
               imgSize <= 1
-                ? `Preview-img_con_small`
-                : `Preview-img_con`
+                ? `preview-img_con_small`
+                : `preview-img_con`
             }
             style={imgStyle}
             ref={(el) => {
@@ -565,14 +568,14 @@ export default class ImgPreview extends Component<
         </div>
         {/* 下一张 */}
         <div
-          className={`Preview-right`}
+          className={`preview-right`}
           onClick={this.goAfterPage.bind(this)}
         >
           <span></span>
         </div>
         {/* 缩略图 */}
         {this.props.showThumbnail ? (
-          <div className={`Preview-footer`}>
+          <div className={`preview-footer`}>
             <ul className={'preview-footer-ul'}>
               {imageArr.map((item: any, index: number) => {
                 return (
