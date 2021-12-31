@@ -25,7 +25,8 @@ type CardImagesItemsProps = {
 
 ### DEMO
 
-![image](https://user-images.githubusercontent.com/38370643/147807907-00857dba-2873-49f2-85ef-0ec4304a1564.png)
+![image](https://user-images.githubusercontent.com/38370643/147807979-663a6620-f22a-49ec-9ad1-ad179c6d187a.png)
+
 ![image](https://user-images.githubusercontent.com/38370643/147807937-e82d8272-e37b-4dc8-b7f3-0bb2454c0571.png)
 
 ```ts
