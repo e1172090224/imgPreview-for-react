@@ -38,12 +38,12 @@ export default class ImgPreview extends Component<
       imgStyle: {}, //图片样式
       ImgHeight: 0, //宽高初始值
       ImgWidth: 0, //宽高初始值
-      imageNum: 0 
+      imageNum: 0
     };
-    this.windowW = document.body.offsetWidth;
+    this.windowW = document.documentElement.clientWidth;
     this.windowH = this.props.showThumbnail
-      ? document.body.offsetHeight - 200
-      : document.body.offsetHeight - 50;
+      ? document.documentElement.clientHeight - 200
+      : document.documentElement.clientHeight - 50;
   }
   componentDidMount(): void {
     const { imageArr, imgIndex } = this.props;
@@ -166,21 +166,21 @@ export default class ImgPreview extends Component<
           imgStyle:
             imgSize >= 1
               ? {
-                  backgroundImage: `url(${imageArr[imgIndex]?.url})`,
-                  width: this.windowH * (imgSize + 0.25) + 'px',
-                  height:
-                    this.state.imgSize >= 1
-                      ? this.windowW * (imgSize + 0.25) + 'px'
-                      : '100%',
-                }
+                backgroundImage: `url(${imageArr[imgIndex]?.url})`,
+                width: this.windowH * (imgSize + 0.25) + 'px',
+                height:
+                  this.state.imgSize >= 1
+                    ? this.windowW * (imgSize + 0.25) + 'px'
+                    : '100%',
+              }
               : {
-                  backgroundImage: `url(${imageArr[imgIndex]?.url})`,
-                  width: this.windowH * (imgSize + 0.25) + 'px',
-                  height:
-                    this.state.imgSize >= 1
-                      ? this.windowW * (imgSize + 0.25) + 'px'
-                      : '100%',
-                },
+                backgroundImage: `url(${imageArr[imgIndex]?.url})`,
+                width: this.windowH * (imgSize + 0.25) + 'px',
+                height:
+                  this.state.imgSize >= 1
+                    ? this.windowW * (imgSize + 0.25) + 'px'
+                    : '100%',
+              },
         },
         () => {
           if (imgSize >= 1) {
@@ -190,11 +190,9 @@ export default class ImgPreview extends Component<
                 ImgHeight: this.imgCon.offsetHeight,
                 imgStyle: {
                   ...this.state.imgStyle,
-                  transform: `rotate(-${
-                    (this.state.rotate - 1) * 90
-                  }deg) translate(${this.windowH - this.imgCon.offsetWidth}px,${
-                    this.windowH
-                  }px)`,
+                  transform: `rotate(-${(this.state.rotate - 1) * 90
+                    }deg) translate(${this.windowH - this.imgCon.offsetWidth}px,${this.windowH
+                    }px)`,
                   transformOrigin: `0 ${this.windowH}px`,
                 },
               },
@@ -247,8 +245,8 @@ export default class ImgPreview extends Component<
                 const photoSwipeHeight =
                   this.imgCon.offsetHeight -
                   (this.props.showThumbnail
-                    ? document.body.offsetHeight - 200
-                    : document.body.offsetHeight);
+                    ? document.documentElement.clientHeight - 200
+                    : document.documentElement.clientHeight);
                 this.photoSwipe.scrollTo(
                   photoSwipeWidth / 2,
                   photoSwipeHeight / 2,
@@ -275,21 +273,21 @@ export default class ImgPreview extends Component<
           imgStyle:
             imgSize >= 1
               ? {
-                  backgroundImage: `url(${imageArr[imgIndex]?.url})`,
-                  width: this.windowH * (imgSize + 0.25) + 'px',
-                  height:
-                    this.state.imgSize >= 1
-                      ? this.windowW * (imgSize + 0.25) + 'px'
-                      : '100%',
-                }
+                backgroundImage: `url(${imageArr[imgIndex]?.url})`,
+                width: this.windowH * (imgSize + 0.25) + 'px',
+                height:
+                  this.state.imgSize >= 1
+                    ? this.windowW * (imgSize + 0.25) + 'px'
+                    : '100%',
+              }
               : {
-                  backgroundImage: `url(${imageArr[imgIndex]?.url})`,
-                  width: this.windowH * (imgSize + 0.25) + 'px',
-                  height:
-                    this.state.imgSize >= 1
-                      ? this.windowW * (imgSize + 0.25) + 'px'
-                      : '100%',
-                },
+                backgroundImage: `url(${imageArr[imgIndex]?.url})`,
+                width: this.windowH * (imgSize + 0.25) + 'px',
+                height:
+                  this.state.imgSize >= 1
+                    ? this.windowW * (imgSize + 0.25) + 'px'
+                    : '100%',
+              },
         },
         () => {
           if (imgSize >= 1) {
@@ -300,11 +298,9 @@ export default class ImgPreview extends Component<
                 imgStyle: {
                   ...this.state.imgStyle,
 
-                  transform: `rotate(-${
-                    (this.state.rotate - 1) * 90
-                  }deg) translate(-${this.windowH}px,${
-                    this.windowH - this.imgCon.offsetHeight
-                  }px)`,
+                  transform: `rotate(-${(this.state.rotate - 1) * 90
+                    }deg) translate(-${this.windowH}px,${this.windowH - this.imgCon.offsetHeight
+                    }px)`,
                   transformOrigin: `0 ${this.windowH}px`,
                 },
               },
@@ -340,21 +336,21 @@ export default class ImgPreview extends Component<
             imgStyle:
               imgSize >= 1
                 ? {
-                    backgroundImage: `url(${imageArr[imgIndex]?.url})`,
-                    width: this.windowH * (imgSize - 0.25) + 'px',
-                    height:
-                      this.state.imgSize >= 1
-                        ? this.windowW * (imgSize - 0.25) + 'px'
-                        : '100%',
-                  }
+                  backgroundImage: `url(${imageArr[imgIndex]?.url})`,
+                  width: this.windowH * (imgSize - 0.25) + 'px',
+                  height:
+                    this.state.imgSize >= 1
+                      ? this.windowW * (imgSize - 0.25) + 'px'
+                      : '100%',
+                }
                 : {
-                    backgroundImage: `url(${imageArr[imgIndex]?.url})`,
-                    width: this.windowH * (imgSize - 0.25) + 'px',
-                    height:
-                      this.state.imgSize >= 1
-                        ? this.windowW * (imgSize - 0.25) + 'px'
-                        : '100%',
-                  },
+                  backgroundImage: `url(${imageArr[imgIndex]?.url})`,
+                  width: this.windowH * (imgSize - 0.25) + 'px',
+                  height:
+                    this.state.imgSize >= 1
+                      ? this.windowW * (imgSize - 0.25) + 'px'
+                      : '100%',
+                },
           },
           () => {
             if (this.state.imgSize > 1) {
@@ -364,11 +360,9 @@ export default class ImgPreview extends Component<
                   ImgHeight: this.imgCon.offsetHeight,
                   imgStyle: {
                     ...this.state.imgStyle,
-                    transform: `rotate(-${
-                      (this.state.rotate - 1) * 90
-                    }deg) translate(${
-                      this.windowH - this.imgCon.offsetWidth
-                    }px,${this.windowH}px)`,
+                    transform: `rotate(-${(this.state.rotate - 1) * 90
+                      }deg) translate(${this.windowH - this.imgCon.offsetWidth
+                      }px,${this.windowH}px)`,
                     transformOrigin: `0 ${this.windowH}px`,
                   },
                 },
@@ -418,8 +412,8 @@ export default class ImgPreview extends Component<
                   const photoSwipeHeight =
                     this.imgCon.offsetHeight -
                     (this.props.showThumbnail
-                      ? document.body.offsetHeight - 200
-                      : document.body.offsetHeight);
+                      ? document.documentElement.clientHeight - 200
+                      : document.documentElement.clientHeight);
                   this.photoSwipe.scrollTo(
                     photoSwipeWidth / 2,
                     photoSwipeHeight / 2,
@@ -446,21 +440,21 @@ export default class ImgPreview extends Component<
             imgStyle:
               imgSize >= 1
                 ? {
-                    backgroundImage: `url(${imageArr[imgIndex]?.url})`,
-                    width: this.windowH * (imgSize - 0.25) + 'px',
-                    height:
-                      this.state.imgSize >= 1
-                        ? this.windowW * (imgSize - 0.25) + 'px'
-                        : '100%',
-                  }
+                  backgroundImage: `url(${imageArr[imgIndex]?.url})`,
+                  width: this.windowH * (imgSize - 0.25) + 'px',
+                  height:
+                    this.state.imgSize >= 1
+                      ? this.windowW * (imgSize - 0.25) + 'px'
+                      : '100%',
+                }
                 : {
-                    backgroundImage: `url(${imageArr[imgIndex]?.url})`,
-                    width: this.windowH * (imgSize - 0.25) + 'px',
-                    height:
-                      this.state.imgSize >= 1
-                        ? this.windowW * (imgSize - 0.25) + 'px'
-                        : '100%',
-                  },
+                  backgroundImage: `url(${imageArr[imgIndex]?.url})`,
+                  width: this.windowH * (imgSize - 0.25) + 'px',
+                  height:
+                    this.state.imgSize >= 1
+                      ? this.windowW * (imgSize - 0.25) + 'px'
+                      : '100%',
+                },
           },
           () => {
             if (this.state.imgSize > 1) {
@@ -470,11 +464,9 @@ export default class ImgPreview extends Component<
                   ImgHeight: this.imgCon.offsetHeight,
                   imgStyle: {
                     ...this.state.imgStyle,
-                    transform: `rotate(-${
-                      (this.state.rotate - 1) * 90
-                    }deg) translate(-${this.windowH}px,${
-                      this.windowH - this.imgCon.offsetHeight
-                    }px)`,
+                    transform: `rotate(-${(this.state.rotate - 1) * 90
+                      }deg) translate(-${this.windowH}px,${this.windowH - this.imgCon.offsetHeight
+                      }px)`,
                     transformOrigin: `0 ${this.windowH}px`,
                   },
                 },
@@ -505,8 +497,8 @@ export default class ImgPreview extends Component<
     }
   }
   render() {
-    const { imgIndex, imageArr, imgSize, imgStyle,imageNum } = this.state;
-    console.log('ji',imgIndex,imageArr)
+    const { imgIndex, imageArr, imgSize, imgStyle, imageNum } = this.state;
+    //console.log('windowW=', document.documentElement.clientWidth, 'windowH=', document.documentElement.clientHeight - 50, imgIndex, imageArr)
     return (
       <div className={'preview-photo_swipe'}>
         <div className={'preview-topbar'}>
