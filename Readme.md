@@ -16,7 +16,7 @@
 
 ```ts
 type CardImagesItemsProps = {
-  imageTitle?: string; // 图片标题，如果不传，则不大图预览时不展示标题
+  imgTitle?: string; // 图片标题，如果不传，则不大图预览时不展示标题
   thumbnail?: string; // 缩略图url，如果不传，则使用大图URL
   url?: string; // 大图url
 };
